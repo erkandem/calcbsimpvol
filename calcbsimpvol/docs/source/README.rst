@@ -145,10 +145,7 @@ ToDos
 -----
 
 -  make the code compatible with ``Python 2``
--  translate to whatever language
--  make it ``PyPy``, ``PyPy3`` compatible
--  reduce dependency from ``SciPy`` by replacing ``erf`` (``PyPy3``
-   doesn’t support ``SciPy`` yet)
+-  make it ``PyPy``
 
 References
 ----------
