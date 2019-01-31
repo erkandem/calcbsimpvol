@@ -4,6 +4,8 @@ _bkp
 a.bat
 a27.bat
 .env
+.venv/
+commands.sh
 
 # Created by https://www.gitignore.io/api/python,matlab,pycharm,windows
 # Edit at https://www.gitignore.io/?templates=python,matlab,pycharm,windows

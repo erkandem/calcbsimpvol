@@ -1,0 +1,29 @@
+dist: xenial
+language: python
+python:
+# - "2.6"
+# - "2.7" # fails
+  - "3.4"
+  - "3.5"
+  - "3.5-dev"
+  - "3.6"
+  - "3.6-dev"
+  - "3.7"
+  - "3.7-dev"
+# - "3.8"
+# - "3.8-dev"
+#  PyPy versions
+  - "pypy3.5"
+# pypy built dependencies for SciPy and Matplotlib
+before_install:
+  - sudo apt-get install -y libblas-dev
+  - sudo apt-get install -y liblapack-dev
+  - sudo apt-get install -y gfortran
+  - sudo apt-get install -y libfreetype6-dev
+# python dependencies
+install:
+  - pip install -r requirements.txt
+  - pip install .
+# command to run tests
+script:
+  - pytest -v
