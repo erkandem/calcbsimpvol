@@ -1,0 +1,295 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Results and (some) Discussion. &mdash; calcbsimpvol 1.13.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Notes on Data Sets" href="data.html" />
+    <link rel="prev" title="API" href="api.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> calcbsimpvol
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.13.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="README.html">calcbsimpvol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Results and (some) Discussion.</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#reference-vs-calcbsimvol-bsimpv-and-calcbsimpvol"><code class="docutils literal notranslate"><span class="pre">reference</span></code> vs <code class="docutils literal notranslate"><span class="pre">calcBSImvol()</span></code>, <code class="docutils literal notranslate"><span class="pre">bsimpv()</span></code> and <code class="docutils literal notranslate"><span class="pre">calcbsimpvol()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#calcbsimvol-vs-bsimpv-vs-calc-ivol"><code class="docutils literal notranslate"><span class="pre">calcBSImvol</span></code> vs <code class="docutils literal notranslate"><span class="pre">bsimpv()</span></code> vs <code class="docutils literal notranslate"><span class="pre">calc_ivol</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">Notes on Data Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">calcbsimpvol</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Results and (some) Discussion.</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/results.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="results-and-some-discussion">
+<h1>Results and (some) Discussion.<a class="headerlink" href="#results-and-some-discussion" title="Permalink to this headline">¶</a></h1>
+<p>It was important to me to port the behavior of the <code class="docutils literal notranslate"><span class="pre">calcBsImpVol</span></code>.
+An easy way to get the results visualized without using pytest and simialer
+great tools is a unity plot.</p>
+<p>The matrices/arrays which contain the values to be compared are flattened
+to row vectors and scattered against each other. Any significant deviation will then
+stand out from the line created by <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">x</span></code></p>
+<p>Couple of things which are left to point out in relation to Fig. 1, 2, 3 and 4:</p>
+<p>Since I can’t know the assumptions made for the risk free rate and dividend yield
+I had to come up with somewhat reasonable assumptions on my own.
+As such, I picked the T-Notes yields corresponding with the options time until expiry as the risk free rate and the
+trailing 12m dividend payout as the dividend yield.</p>
+<p>Fig 4.1, 4.2 and 4.3 illustrate that deviation is primarily an issue for calls.</p>
+<p>bsimpv, calc_ivol  and calcBsImpVol use closed form formulas designed to return
+the implied volatility of european options. The reference method however uses
+a numerical approach. american style options should generally be more
+expensive or equally priced to european style options.</p>
+<p>A numerical approach seems to express that better for calls. Hence the
+implied volatility is underestimated by closed form approach.</p>
+<p>About he puts with <code class="docutils literal notranslate"><span class="pre">iVol</span> <span class="pre">~</span> <span class="pre">0.5</span></code>? Tell us.</p>
+<div class="section" id="reference-vs-calcbsimvol-bsimpv-and-calcbsimpvol">
+<h2><code class="docutils literal notranslate"><span class="pre">reference</span></code> vs <code class="docutils literal notranslate"><span class="pre">calcBSImvol()</span></code>, <code class="docutils literal notranslate"><span class="pre">bsimpv()</span></code> and <code class="docutils literal notranslate"><span class="pre">calcbsimpvol()</span></code><a class="headerlink" href="#reference-vs-calcbsimvol-bsimpv-and-calcbsimpvol" title="Permalink to this headline">¶</a></h2>
+<div class="align-center figure" id="id5">
+<a class="reference internal image-reference" href="_images/mlb_blsimpv_vs_reference.png"><img alt="mlb_blsimpv_vs_reference" src="_images/mlb_blsimpv_vs_reference.png" style="width: 350px; height: 262px;" /></a>
+<p class="caption"><span class="caption-text">Fig. 1 - reference vs results of MATLAB builtin <code class="docutils literal notranslate"><span class="pre">blsimpv()</span></code></span></p>
+</div>
+<div class="align-center figure" id="id6">
+<a class="reference internal image-reference" href="_images/mlb_rational_vs_reference.png"><img alt="mlb_rational_vs_reference" src="_images/mlb_rational_vs_reference.png" style="width: 350px; height: 262px;" /></a>
+<p class="caption"><span class="caption-text">Fig. 2 - reference vs results of MATLAB <code class="docutils literal notranslate"><span class="pre">calcBSImpVol()</span></code></span></p>
+</div>
+<div class="align-center figure" id="id7">
+<a class="reference internal image-reference" href="_images/mlb_rational_vs_reference_cleaned.png"><img alt="mlb_rational_vs_reference_cleaned" src="_images/mlb_rational_vs_reference_cleaned.png" style="width: 350px; height: 262px;" /></a>
+<p class="caption"><span class="caption-text">Fig. 3 -  reference vs Python <code class="docutils literal notranslate"><span class="pre">calcBSImpVol()</span></code> - adjusted for <code class="docutils literal notranslate"><span class="pre">NaN</span></code></span></p>
+</div>
+<div class="align-center figure" id="id8">
+<a class="reference internal image-reference" href="_images/python_vs_reference_cleaned.png"><img alt="python_vs_reference_cleaned" src="_images/python_vs_reference_cleaned.png" style="width: 350px; height: 262px;" /></a>
+<p class="caption"><span class="caption-text">Fig. 4 - reference vs Python <code class="docutils literal notranslate"><span class="pre">calcbsimpvol()</span></code></span></p>
+</div>
+<div class="align-center figure" id="id9">
+<a class="reference internal image-reference" href="_images/python_vs_reference_cleaned.png"><img alt="python_vs_reference_cleaned" src="_images/python_vs_reference_cleaned.png" style="width: 350px; height: 262px;" /></a>
+<p class="caption"><span class="caption-text">Fig. 4.1 - reference vs Python <code class="docutils literal notranslate"><span class="pre">calcbsimpvol()</span></code> - close up</span></p>
+</div>
+<div class="align-center figure" id="id10">
+<a class="reference internal image-reference" href="_images/calc_ivol_vs_reference_close_up_calls.png"><img alt="calc_ivol_vs_reference_close_up_calls" src="_images/calc_ivol_vs_reference_close_up_calls.png" style="width: 350px; height: 262px;" /></a>
+<p class="caption"><span class="caption-text">Fig. 4.2 - reference vs Python <code class="docutils literal notranslate"><span class="pre">calcbsimpvol()</span></code> - only calls</span></p>
+</div>
+<div class="align-center figure" id="id11">
+<a class="reference internal image-reference" href="_images/calc_ivol_vs_reference_close_up_puts.png"><img alt="calc_ivol_vs_reference_close_up_puts" src="_images/calc_ivol_vs_reference_close_up_puts.png" style="width: 350px; height: 262px;" /></a>
+<p class="caption"><span class="caption-text">Fig. 4.3 - reference vs Python <code class="docutils literal notranslate"><span class="pre">calc_ivol()</span></code> - only puts</span></p>
+</div>
+</div>
+<div class="section" id="calcbsimvol-vs-bsimpv-vs-calc-ivol">
+<h2><code class="docutils literal notranslate"><span class="pre">calcBSImvol</span></code> vs <code class="docutils literal notranslate"><span class="pre">bsimpv()</span></code> vs <code class="docutils literal notranslate"><span class="pre">calc_ivol</span></code><a class="headerlink" href="#calcbsimvol-vs-bsimpv-vs-calc-ivol" title="Permalink to this headline">¶</a></h2>
+<p>Fig. 5 shows that  <code class="docutils literal notranslate"><span class="pre">calcBSImvol()</span></code> offers an extended calculation range compared to
+<code class="docutils literal notranslate"><span class="pre">bsimpv()</span></code>. The <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values returned from <code class="docutils literal notranslate"><span class="pre">bsimpv()</span></code> were set to <code class="docutils literal notranslate"><span class="pre">zero</span></code> in order to create Fig. 5.</p>
+<p>Removing the “silent evindence” of <a href="#id1"><span class="problematic" id="id2">``</span></a>NaN``s and <a href="#id3"><span class="problematic" id="id4">``</span></a>zero``s returns Fig. 6.</p>
+<p>Fig. 7 completes the picture.</p>
+<div class="align-center figure" id="id12">
+<a class="reference internal image-reference" href="_images/mlb_builtin_vs_matrixwise.png"><img alt="mlb_builtin_vs_matrixwise" src="_images/mlb_builtin_vs_matrixwise.png" style="width: 350px; height: 262px;" /></a>
+<p class="caption"><span class="caption-text">Fig. 5 - MATLAB builtin <code class="docutils literal notranslate"><span class="pre">blsimpv()</span></code> vs  MATLAB <code class="docutils literal notranslate"><span class="pre">calcBSImpVol()</span></code></span></p>
+</div>
+<div class="align-center figure" id="id13">
+<a class="reference internal image-reference" href="_images/mlb_builtin_vs_matrixwise_cleaned_for_nan_both.png"><img alt="mlb_builtin_vs_matrixwise_cleaned_for_nan_both" src="_images/mlb_builtin_vs_matrixwise_cleaned_for_nan_both.png" style="width: 350px; height: 262px;" /></a>
+<p class="caption"><span class="caption-text">Fig. 6 - MATLAB builtin <code class="docutils literal notranslate"><span class="pre">blsimpv()</span></code> vs  MATLAB <code class="docutils literal notranslate"><span class="pre">calcBSImpVol()</span></code> - adjusted for <code class="docutils literal notranslate"><span class="pre">NaN</span></code></span></p>
+</div>
+<div class="align-center figure" id="id14">
+<a class="reference internal image-reference" href="_images/python_vs_matlab_clean.png"><img alt="python_vs_matlab_clean" src="_images/python_vs_matlab_clean.png" style="width: 350px; height: 262px;" /></a>
+<p class="caption"><span class="caption-text">Fig. 7 - Python <code class="docutils literal notranslate"><span class="pre">calcbsimpvol()</span></code> vs MATLAB <code class="docutils literal notranslate"><span class="pre">calcBSImVol()</span></code></span></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="data.html" class="btn btn-neutral float-right" title="Notes on Data Sets" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="api.html" class="btn btn-neutral" title="API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Erkan Demiralay
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+        <script type="text/javascript" src="_static/copybutton.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

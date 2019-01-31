@@ -1,0 +1,270 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Notes on Data Sets &mdash; calcbsimpvol 1.13.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="License" href="license.html" />
+    <link rel="prev" title="Results and (some) Discussion." href="results.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> calcbsimpvol
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.13.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="README.html">calcbsimpvol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="results.html">Results and (some) Discussion.</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Notes on Data Sets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#cl-20171115-json">cl_20171115.json</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reference-sample-json">reference_sample.json</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#spy-20190118-json">spy_20190118.json:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">calcbsimpvol</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Notes on Data Sets</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/data.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <span class="target" id="module-data"></span><div class="section" id="notes-on-data-sets">
+<h1>Notes on Data Sets<a class="headerlink" href="#notes-on-data-sets" title="Permalink to this headline">¶</a></h1>
+<p>While it is easy to make up some random data this will not result in
+something meaningful since BS is not linear. These data sets are obfuscated
+but have the structure real world data would have…if it were real data.</p>
+<p>Some notes on the keys of the JSON data files:</p>
+<div class="section" id="cl-20171115-json">
+<h2>cl_20171115.json<a class="headerlink" href="#cl-20171115-json" title="Permalink to this headline">¶</a></h2>
+<p>Data on crude oil with expiry on 15. Nov, 2017</p>
+<p><strong>d20161209</strong>: Data of 09. Dec, 2016</p>
+<p><strong>S</strong>: underlying price</p>
+<p><strong>cp</strong>: call[+1] or put[-1]</p>
+<p><strong>K</strong>: strike price</p>
+<p><strong>P</strong>: option price</p>
+<p><strong>tau</strong>: Time until expiry in years</p>
+<p><strong>moneyness</strong>: Here: log(S/K)</p>
+<p><strong>q</strong>: Here: fictional yield from reinvesting cash above margin threshold for the risk free rate</p>
+<p><strong>r</strong>: risk free rate estimated from treasuries for that specific <cite>time until expiry</cite></p>
+<p><strong>mlb_rational</strong>: result obtained from <cite>calcBsImpVol.m</cite> with additional proprietary filtering, if needed</p>
+<p><strong>delta</strong>: a raw delta estimate calculated from the iVol from <cite>mlb_rational</cite></p>
+</div>
+<div class="section" id="reference-sample-json">
+<h2>reference_sample.json<a class="headerlink" href="#reference-sample-json" title="Permalink to this headline">¶</a></h2>
+<p>Data taken out of a data collection of a third-party vendor (indicated by (-#-)) and added columns from calculations</p>
+<p><strong>d20170921</strong>: Data of 21. Sep, 2017</p>
+<p><strong>cp</strong>: (-#-)</p>
+<p><strong>P</strong>: (-#-)</p>
+<p><strong>S</strong>: (-#-)</p>
+<p><strong>K</strong>: (-#-)</p>
+<p><strong>tau</strong>: calculated</p>
+<p><strong>r</strong>: calculated</p>
+<p><strong>q</strong>: trailing 12 month dividend yield ESTIMATE</p>
+<p><strong>py_rational</strong>: iVol calculated obtained from calc_ivol.py</p>
+<p><strong>ref_iv_clean(-#-)</strong>: iVol stated in the third-party reference supplied; set to NaN where <code class="docutils literal notranslate"><span class="pre">ref_iv_is_interpolated</span></code> was <code class="docutils literal notranslate"><span class="pre">true</span></code></p>
+<p><strong>ref_iv_is_interpolated</strong>: proprietary model based interpolation/extrapolation by third party vendor</p>
+<p><strong>mlb_blsimpv_clean</strong>: iVol calculated from the built in function in MATLAB; set to NaN where <code class="docutils literal notranslate"><span class="pre">ref_iv_is_interpolated</span></code> was <cite>true</cite></p>
+<p><strong>mlb_rational_clean</strong>: iVol calculated from calcBsImpVol with additional proprietary filtering, if needed; set to NaN where <code class="docutils literal notranslate"><span class="pre">ref_iv_is_interpolated</span></code> was <cite>true</cite></p>
+<p><strong>py_rational_clean</strong>: raw data obtained from calc_ivol.py; set to NaN where <code class="docutils literal notranslate"><span class="pre">ref_iv_is_interpolated</span></code> was <code class="docutils literal notranslate"><span class="pre">true</span></code></p>
+</div>
+<div class="section" id="spy-20190118-json">
+<h2>spy_20190118.json:<a class="headerlink" href="#spy-20190118-json" title="Permalink to this headline">¶</a></h2>
+<p>SPY options data with expiry on 18. Jan, 2019</p>
+<p><strong>d20171226</strong>: Data of 26. Dec, 2017</p>
+<p><strong>q</strong>: trailing 12 month dividend yield ESTIMATE</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="license.html" class="btn btn-neutral float-right" title="License" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="results.html" class="btn btn-neutral" title="Results and (some) Discussion." accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Erkan Demiralay
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+        <script type="text/javascript" src="_static/copybutton.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

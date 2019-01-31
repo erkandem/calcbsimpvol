@@ -1,0 +1,398 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>calcbsimpvol &mdash; calcbsimpvol 1.13.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API" href="api.html" />
+    <link rel="prev" title="calcbsimpvol" href="index.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> calcbsimpvol
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.13.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">calcbsimpvol</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting started</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#performance">Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#notes">Notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#code-origin">Code Origin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#contact">Contact</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#todos">ToDos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#license">License</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="results.html">Results and (some) Discussion.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">Notes on Data Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">calcbsimpvol</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>calcbsimpvol</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/README.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p><a class="reference external" href="https://travis-ci.com/erkandem/calcbsimpvol"><img alt="Build Status" src="https://travis-ci.com/erkandem/calcbsimpvol.svg?token=EM8YQfR9wuLvQFQzBZ5o&amp;branch=master" /></a> <img alt="image1" src="https://img.shields.io/badge/License-MIT-blue.svg" /> <img alt="image2" src="https://img.shields.io/badge/Python-3.4%20%7C%203.5%20%7C%203.6%20%7C%203.7%20%7C%20PyPy3-blue.svg" /> <a class="reference external" href="https://pypi.org/project/calcbsimpvol/"><img alt="image3" src="https://img.shields.io/badge/PyPi-v1.13.0-blue.svg" /></a></p>
+<div class="section" id="calcbsimpvol">
+<h1>calcbsimpvol<a class="headerlink" href="#calcbsimpvol" title="Permalink to this headline">¶</a></h1>
+<p><em>Calculate Black-Scholes Implied Volatility - Vectorwise</em></p>
+<hr class="docutils" />
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">:)</span></code> native python code</li>
+<li><code class="docutils literal notranslate"><span class="pre">:)</span></code> lightweight footprint</li>
+<li><code class="docutils literal notranslate"><span class="pre">:)</span></code> sample data included</li>
+<li><code class="docutils literal notranslate"><span class="pre">:(</span></code> not suited for single / low number of options</li>
+<li><code class="docutils literal notranslate"><span class="pre">:(</span></code> code reads un-pythonic</li>
+<li><code class="docutils literal notranslate"><span class="pre">:(</span></code> not yet thoroughly tested</li>
+</ul>
+<div class="section" id="getting-started">
+<h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="requirements">
+<h3>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Python 3.x (currently) or PyPy3</li>
+<li>NumPy</li>
+<li>SciPy</li>
+<li>(MatPlotLib to visualize results in some examples)</li>
+</ul>
+</div>
+<div class="section" id="installation">
+<h3>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h3>
+<p>While the code consists of single digit functions, I recommend using the
+<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> way to get the code. That way you would take advantage
+of bug fixes, updates, and possible extensions.</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install calcbsimpvol
+</pre></div>
+</div>
+</div>
+<div class="section" id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<p>Pass your <code class="docutils literal notranslate"><span class="pre">args</span></code> bundled in a <code class="docutils literal notranslate"><span class="pre">dict</span></code>.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">calcbsimpvol</span> <span class="k">import</span> <span class="n">calcbsimpvol</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">K_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">K</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">K_value</span><span class="p">),</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">K</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">K_value</span>
+<span class="n">tau_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">1.01</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span>
+<span class="n">tau</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">tau_value</span><span class="p">),</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">tau</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">tau_value</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="n">q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="mf">0.03</span><span class="p">)</span>
+<span class="n">cp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">P</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">59.35</span><span class="p">,</span> <span class="mf">34.41</span><span class="p">,</span> <span class="mf">10.34</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">],</span>
+<span class="p">[</span><span class="mf">58.71</span><span class="p">,</span> <span class="mf">33.85</span><span class="p">,</span> <span class="mf">10.99</span><span class="p">,</span> <span class="mf">1.36</span><span class="p">,</span> <span class="mf">0.14</span><span class="p">],</span>
+<span class="p">[</span><span class="mf">58.07</span><span class="p">,</span> <span class="mf">33.35</span><span class="p">,</span> <span class="mf">11.50</span><span class="p">,</span> <span class="mf">2.12</span><span class="p">,</span> <span class="mf">0.40</span><span class="p">],</span>
+<span class="p">[</span><span class="mf">57.44</span><span class="p">,</span> <span class="mf">32.91</span><span class="p">,</span> <span class="mf">11.90</span><span class="p">,</span> <span class="mf">2.77</span><span class="p">,</span> <span class="mf">0.70</span><span class="p">]]</span>
+
+<span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+<span class="p">[</span><span class="n">K</span><span class="p">,</span> <span class="n">tau</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">tau</span><span class="p">)</span>
+
+<span class="n">sigma</span> <span class="o">=</span> <span class="n">calcbsimpvol</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">cp</span><span class="o">=</span><span class="n">cp</span><span class="p">,</span> <span class="n">P</span><span class="o">=</span><span class="n">P</span><span class="p">,</span> <span class="n">S</span><span class="o">=</span><span class="n">S</span><span class="p">,</span> <span class="n">K</span><span class="o">=</span><span class="n">K</span><span class="p">,</span> <span class="n">tau</span><span class="o">=</span><span class="n">tau</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="n">r</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="n">q</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sigma</span><span class="p">)</span>
+
+<span class="c1"># [[      nan,       nan,  0.20709362, 0.21820954, 0.24188675],</span>
+<span class="c1"># [       nan, 0.22279836, 0.20240934, 0.21386148, 0.23738982],</span>
+<span class="c1"># [       nan, 0.22442837, 0.1987048 , 0.21063506, 0.23450013],</span>
+<span class="c1"># [       nan, 0.22188111, 0.19564657, 0.20798285, 0.23045406]]</span>
+</pre></div>
+</div>
+<p>More usage examples are available in
+<a class="reference external" href="https://github.com/erkandem/calcbsimpvol">example3.py</a> (additional
+sample data required which is available at <a class="reference external" href="https://github.com/erkandem/calcbsimpvol">GitHub
+Repo</a></p>
+</div>
+</div>
+<div class="section" id="performance">
+<h2>Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Design</span> <span class="n">a</span> <span class="n">test</span><span class="o">.</span>
+<span class="n">Get</span> <span class="n">the</span> <span class="n">results</span> <span class="n">you</span> <span class="n">want</span><span class="o">.</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">k_max</span> <span class="pre">=</span> <span class="pre">10</span></code> (default)</li>
+<li><code class="docutils literal notranslate"><span class="pre">tolerance</span> <span class="pre">=</span> <span class="pre">10E-12</span></code> (default)</li>
+<li>linear regression steps are commented out (default)</li>
+</ul>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># assuming you did install it already</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">erkandem</span><span class="o">/</span><span class="n">calcbsimpvol</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">calcbsimpvol</span>
+<span class="n">python</span> <span class="n">examples</span><span class="o">/</span><span class="n">example3</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">steps</span> <span class="mi">100</span> <span class="o">--</span><span class="n">mode</span> <span class="n">reference</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>15 µs per option</li>
+<li>41 ms per surface</li>
+</ul>
+<p>tested with 3.6, 3.7 and PyPy3</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">matlab</span> <span class="o">-</span><span class="n">nodisplay</span> <span class="o">-</span><span class="n">nosplash</span> <span class="o">-</span><span class="n">nodesktop</span> <span class="o">-</span><span class="n">r</span> <span class="s2">&quot;run(&#39;mlb_reference_example.m&#39;);&quot;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>12 µs per option</li>
+<li>34 ms per surface</li>
+</ul>
+<p>Obviously, these values are per core (i5 4210U 1.7 GHz).</p>
+</div>
+<div class="section" id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
+<p>Good Python code reads like a novel. Right? So should math. I preferred
+short math-like variable names in this case. That makes the code less
+readable compared to other Python code but the docstrings should make up
+for the lack of readability.</p>
+<p>Originally, I left the camelCase function name and spelling in place but
+eventually got annoyed. &gt; calcbsimpvol it is</p>
+</div>
+<div class="section" id="code-origin">
+<h2>Code Origin<a class="headerlink" href="#code-origin" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>first thought of by Li (2006) (see References)</li>
+<li>implemented and published by Mark Whirdy as MATLAB .m-code (see
+References)</li>
+<li>numpyified from <code class="docutils literal notranslate"><span class="pre">.m</span></code> to <code class="docutils literal notranslate"><span class="pre">.py</span></code> by me</li>
+</ul>
+</div>
+<div class="section" id="contact">
+<h2>Contact<a class="headerlink" href="#contact" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>email: <a class="reference external" href="mailto:me&#37;&#52;&#48;erkan&#46;io">erkan<span>&#64;</span>erkan<span>&#46;</span>io</a></li>
+<li>documentation:
+<a class="reference external" href="https://erkandem.github.io/calcbsimpvol/">erkandem.github.io/calcbsimpvol/</a></li>
+<li>source:
+<a class="reference external" href="https://github.com/erkandem/calcbsimpvol">github.com/erkandem/calcbsimpvol</a></li>
+<li>issues:
+<a class="reference external" href="https://github.com/erkandem/calcbsimpvol/issues">github.com/erkandem/calcbsimpvol/issues</a></li>
+<li>author website: <a class="reference external" href="https://erkan.io">erkan.io</a> (under construction)</li>
+</ul>
+</div>
+<div class="section" id="todos">
+<h2>ToDos<a class="headerlink" href="#todos" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>make the code compatible with <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">2</span></code></li>
+<li>translate to whatever language</li>
+<li>make it <code class="docutils literal notranslate"><span class="pre">PyPy</span></code>, <code class="docutils literal notranslate"><span class="pre">PyPy3</span></code> compatible</li>
+<li>reduce dependency from <code class="docutils literal notranslate"><span class="pre">SciPy</span></code> by replacing <code class="docutils literal notranslate"><span class="pre">erf</span></code> (<code class="docutils literal notranslate"><span class="pre">PyPy3</span></code>
+doesn’t support <code class="docutils literal notranslate"><span class="pre">SciPy</span></code> yet)</li>
+</ul>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Li, 2006, “You Don’t Have to Bother Newton for Implied Volatility”</p>
+<p><a class="reference external" href="http://papers.ssrn.com/sol3/papers.cfm?abstract_id=952727">http://papers.ssrn.com/sol3/papers.cfm?abstract_id=952727</a></p>
+</li>
+<li><p class="first">MATLAB source code available at:</p>
+<p><a class="reference external" href="https://www.mathworks.com/matlabcentral/fileexchange/41473-calcbsimpvol-cp-p-s-k-t-r-q">https://www.mathworks.com/matlabcentral/fileexchange/41473-calcbsimpvol-cp-p-s-k-t-r-q</a></p>
+</li>
+</ol>
+</div>
+<div class="section" id="license">
+<h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
+<p>The included Python code is licensed under <code class="docutils literal notranslate"><span class="pre">MIT</span></code>
+<a class="reference external" href="https://github.com/calcbsimpvol/calcbsimpvol/LICENCE">License</a></p>
+<p>The Code by Mark Whirdy is licensed under <code class="docutils literal notranslate"><span class="pre">MIT</span></code>
+<a class="reference external" href="https://github.com/erkandem/calcbsimpvol/calcBSImpVol_mlab/LICENSE">License</a></p>
+<p>The translation is not related or endorsed by the original author.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="api.html" class="btn btn-neutral float-right" title="API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="calcbsimpvol" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Erkan Demiralay
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+        <script type="text/javascript" src="_static/copybutton.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
