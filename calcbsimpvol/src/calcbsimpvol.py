@@ -184,9 +184,9 @@ def calcbsimpvol(arg_dict):
     # supplied as a scalar value or previously modeled and supplied as an array / vector
     if size(r) == 1:
         r = r * ones((g, h))
-    if size(q):
+    if size(q) == 1:
         q = q * ones((g, h))
-    if size(cp):
+    if size(cp) == 1:
         cp = cp * ones((g, h))
 
     p = asarray([-0.969271876255, 0.097428338274, 1.750081126685])
