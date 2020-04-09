@@ -5,6 +5,7 @@ import numpy as np
 import warnings
 warnings.filterwarnings("ignore")
 import optparse
+import zipfile
 try:
     import matplotlib.pyplot as plt
     from mpl_toolkits.mplot3d import Axes3D # used for 3D plotting
@@ -49,8 +50,13 @@ def scatter2d(x, y, x_key=None, y_key=None, x_label=None, y_label=None):
 
 
 def load_data(file_path):
-    with open(file_path, 'r') as f:
-        data_string = f.read()
+    with zipfile.ZipFile(file_path, 'r') as zf:
+        file_names = zf.namelist()
+        if len(file_names) != 1:
+            raise ValueError('expected archive to have only one file')
+        if file_names[0] not in file_path:
+            raise ValueError('expected file name to be part of the archive name')
+        data_string = zf.read(file_names[0])
         return data_string
 
 
@@ -174,12 +180,12 @@ if __name__ == '__main__':
     )
     p, args = parser.parse_args()
     if p.mode == 'reference':
-        file_path = os.path.join('data', 'reference_sample.json')
+        file_path = os.path.join('data', 'reference_sample.json.zip')
     # these have reference data, however the data is not from a third party
     elif p.mode == 'spy':
-        file_path = os.path.join('data', 'spy_20190118.json')
+        file_path = os.path.join('data', 'spy_20190118.json.zip')
     elif p.mode == 'cl':
-        file_path = os.path.join('data', 'cl_20171115.json')
+        file_path = os.path.join('data', 'cl_20171115.json.zip')
     else:
         raise ValueError('must be run with an argument (`reference`, `spy`, `cl`)')
 
