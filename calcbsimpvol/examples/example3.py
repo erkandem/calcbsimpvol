@@ -8,7 +8,7 @@ import optparse
 try:
     import matplotlib.pyplot as plt
     from mpl_toolkits.mplot3d import Axes3D # used for 3D plotting
-except ImportWarning():
+except ImportWarning:
     print('Could not import matplotlib - plots won\'t be created')
 
 # assumes that the package was installed in currently used environment
