@@ -4,11 +4,8 @@ from scipy.special import erf
 from numpy import (
     # --- logical
     any,
-    isnan,
-    # isscalar,
     bitwise_not,
     logical_and,
-    logical_or,
 
     # --- constants / data type
     nan,
@@ -16,7 +13,6 @@ from numpy import (
     ndarray,
 
     # --- creation
-    # arange,
     asarray,
     zeros,
     ones,
@@ -31,14 +27,9 @@ from numpy import (
     exp,
     sqrt,
     sum,
-    matmul,
-    linalg,
 
     # --- juggling
-    reshape,
-    vstack,
-    hstack,
-    # meshgrid,
+    reshape
 )
 
 
