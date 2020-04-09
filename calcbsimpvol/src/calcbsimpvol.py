@@ -268,43 +268,9 @@ def calcbsimpvol(arg_dict):
         logical_and((x[:, :, 0] / v) <= 2, (x[:, :, 0] / v) >= -2))
 
     not_domain = bitwise_not(domain_filter)
-    not_nan = bitwise_not(isnan(P))  # unused ?
-
-    v[not_domain] = 0.8  # changed from nan to 0.8
+    v[not_domain] = 0.8
     sigma = v / sqrt(tau)
 
-    # linear regression
-    # turns out, it can be omitted and just set to 0.8
-    '''
-    if any(logical_and(not_domain, not_nan)):
-        M = S / K
-
-        # ITM
-        y = sigma.T.flatten()
-        x = (vstack((tau.T.flatten(), K.T.flatten()))).conj().transpose()
-        x = x[bitwise_not(logical_or(isnan(y), (M < 1).T.flatten())), :]
-        y = y[bitwise_not(logical_or(isnan(y), (M < 1).T.flatten()))]
-        A = hstack((ones((shape(x)[0], 1)), x))
-        B = linalg.lstsq(A, y, rcond=-1)
-        B_cof = B[0]  # removed copy()
-        sigma_ = matmul(vstack((ones((1, size(tau))), tau.flatten(), K.flatten())).T, B_cof)
-        sigma_ = sigma_.reshape(g, h)   # removed copy()
-        is_itm = logical_and(logical_and(not_nan, M >= 1), not_domain)  # removed copy()
-        sigma[is_itm] = sigma_[is_itm]
-
-        # OTM
-        y = sigma.T.flatten()
-        x = (vstack((tau.T.flatten(), K.T.flatten()))).conj().transpose()
-        x = x[bitwise_not(logical_or(isnan(y), (M >= 1).T.flatten())), :]
-        y = y[bitwise_not(logical_or(isnan(y), (M >= 1).T.flatten()))]
-        A = hstack((ones((shape(x)[0], 1)), x))
-        B = linalg.lstsq(A, y, rcond=-1)
-        B_cof = B[0]  # removed copy()
-        sigma_ = matmul(vstack((ones((1, size(tau))), tau.flatten(), K.flatten())).T, B_cof)
-        sigma_ = sigma_.reshape(g, h)   # removed copy()
-        is_otm = logical_and(logical_and(not_nan, M < 1), not_domain)  # removed copy()
-        sigma[is_otm] = sigma_[is_otm]
-    '''
     # Householder's root-finder
     k_max = 10
     tolerance = asarray(1e-12)
