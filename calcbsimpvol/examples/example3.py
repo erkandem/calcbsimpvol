@@ -181,6 +181,6 @@ if __name__ == '__main__':
     elif p.mode == 'cl':
         file_path = os.path.join('data', 'cl_20171115.json')
     else:
-        raise ValueError('must be run with an argument ("reference", "spy", "cl")')
+        raise ValueError('must be run with an argument (`reference`, `spy`, `cl`)')
 
     main(file_path=file_path, steps=p.steps)
