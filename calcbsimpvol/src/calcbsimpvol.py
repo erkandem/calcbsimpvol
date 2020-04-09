@@ -305,7 +305,7 @@ def calcbsimpvol(arg_dict):
         is_otm = logical_and(logical_and(not_nan, M < 1), not_domain)  # removed copy()
         sigma[is_otm] = sigma_[is_otm]
     '''
-    # housholder root-finder
+    # Householder's root-finder
     k_max = 10
     tolerance = asarray(1e-12)
 
