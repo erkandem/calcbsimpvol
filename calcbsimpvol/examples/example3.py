@@ -1,5 +1,4 @@
 import json
-import io
 import os
 from time import time
 import numpy as np
@@ -50,7 +49,7 @@ def scatter2d(x, y, x_key=None, y_key=None, x_label=None, y_label=None):
 
 
 def load_data(file_path):
-    with io.open(file_path, 'r') as f:
+    with open(file_path, 'r') as f:
         data_string = f.read()
         return data_string
 
