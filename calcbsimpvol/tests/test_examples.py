@@ -1,5 +1,5 @@
-from calcbsimpvol.examples.example1 import calcbsimpvol_ex1
-from calcbsimpvol.examples.example2 import calcbsimpvol_ex2
+from calcbsimpvol.examples.example1 import calcbsimpvol_example_1
+from calcbsimpvol.examples.example2 import calcbsimpvol_example_2
 from pytest import approx
 
 from numpy import asarray, nan
@@ -22,8 +22,8 @@ MOE = 1/100000
 
 
 def test_example_1():
-    assert approx(calcbsimpvol_ex1(), abs=MOE, nan_ok=True, ) == expect_ex_1
+    assert approx(calcbsimpvol_example_1(), abs=MOE, nan_ok=True, ) == expect_ex_1
 
 
 def test_example_2():
-    assert approx(calcbsimpvol_ex2(), abs=MOE, nan_ok=True, ) == expect_ex_2
+    assert approx(calcbsimpvol_example_2(), abs=MOE, nan_ok=True, ) == expect_ex_2
