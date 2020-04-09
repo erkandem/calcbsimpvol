@@ -139,8 +139,8 @@ def main(file_path, steps):
                       y=results[day_to_plot]['tau'],
                       z=results[day_to_plot]['py_rational'],
                       x_label='log(F/K)', y_label='tau = T - t_0', z_label='sigma')
-        except:
-            print('Skiping plot part - could not executes `scatter3d` in example3.')
+        except NameError:
+            print('Skipping plot part - could not executes `scatter3d` in example3.')
 
     # next plot is note supposed to be used for quality measurment
     # it was simply a way to check visually whether the Python translation correlates
@@ -151,8 +151,8 @@ def main(file_path, steps):
                       y=results[day_to_plot]['py_rational'],
                       x_key='mlb_rational',
                       y_key='py_rational')
-        except:
-            print('Skiping plot part - could not executes `scatter3d` in example3.')
+        except NameError:
+            print('Skipping plot part - could not executes `scatter3d` in example3.')
 
 
 if __name__ == '__main__':
