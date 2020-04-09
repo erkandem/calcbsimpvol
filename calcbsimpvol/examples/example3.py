@@ -130,7 +130,7 @@ def main(file_path, steps):
                       y=results[day_to_plot]['py_rational'][reference_data[day_to_plot]['cp'] == np.asarray(1)],
                       x_key='ref_iv_clean',
                       y_key='py_rational')
-        except:
+        except NameError:
             print('Skiping plot part - could not executes `scatter2d` in example3.')
         m = np.log(results[day_to_plot]['S']
                    / results[day_to_plot]['K'])
