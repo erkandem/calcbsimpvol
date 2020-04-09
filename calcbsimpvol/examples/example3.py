@@ -131,7 +131,7 @@ def main(file_path, steps):
                       x_key='ref_iv_clean',
                       y_key='py_rational')
         except NameError:
-            print('Skiping plot part - could not executes `scatter2d` in example3.')
+            print('Skipping plot part - could not executes `scatter2d` in example3.')
         m = np.log(results[day_to_plot]['S']
                    / results[day_to_plot]['K'])
         try:
