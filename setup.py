@@ -17,7 +17,7 @@ setup(
     long_description_content_type='text/markdown',
     url='https://erkandem.github.io/calcbsimpvol/',
     author='Erkan Demiralay',
-    author_email='erkan@erkan.io',
+    author_email='erkan.dem@pm.me',
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
