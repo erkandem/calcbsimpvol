@@ -132,14 +132,13 @@ Code Origin
 Contact
 -------
 
--  email: `erkan@erkan.io <mailto:me@erkan.io>`__
+-  email: erkan.dem@pm.me
 -  documentation:
    `erkandem.github.io/calcbsimpvol/ <https://erkandem.github.io/calcbsimpvol/>`__
 -  source:
    `github.com/erkandem/calcbsimpvol <https://github.com/erkandem/calcbsimpvol>`__
 -  issues:
    `github.com/erkandem/calcbsimpvol/issues <https://github.com/erkandem/calcbsimpvol/issues>`__
--  author website: `erkan.io <https://erkan.io>`__ (under construction)
 
 ToDos
 -----

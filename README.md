@@ -127,11 +127,10 @@ Originally, I left the camelCase function name and spelling in place but eventua
 
 
 ## Contact
-* email: [erkan@erkan.io](mailto:me@erkan.io)
+* email: [erkan.dem@pm.me](mailto:erkan.dem@pm.me)
 * documentation: [erkandem.github.io/calcbsimpvol/](https://erkandem.github.io/calcbsimpvol/)
 * source: [github.com/erkandem/calcbsimpvol](https://github.com/erkandem/calcbsimpvol)
 * issues: [github.com/erkandem/calcbsimpvol/issues](https://github.com/erkandem/calcbsimpvol/issues)
-* author website: [erkan.io](https://erkan.io) (under construction)
 
 ## ToDos
 * make the code compatible with `Python 2`
