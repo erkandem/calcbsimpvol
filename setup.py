@@ -33,7 +33,6 @@ setup(
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
-        'Programming Language :: Python :: Implementation :: PyPy',
     ],
     keywords='options implied volatility option iv ivol options-on-futures ivsurface black-scholes',
     install_requires=['numpy', 'scipy', 'matplotlib'],
