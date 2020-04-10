@@ -17,13 +17,22 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
@@ -31,21 +40,16 @@
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Results and (some) Discussion." href="results.html" />
     <link rel="prev" title="calcbsimpvol" href="README.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -156,127 +160,6 @@
             
   <div class="section" id="api">
 <h1>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
-<dt id="calcbsimpvol.calcbsimpvol">
-<code class="descclassname">calcbsimpvol.</code><code class="descname">calcbsimpvol</code><span class="sig-paren">(</span><em>arg_dict</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/calcbsimpvol/src/calcbsimpvol.html#calcbsimpvol"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#calcbsimpvol.calcbsimpvol" title="Permalink to this definition">¶</a></dt>
-<dd><p>calculates implied volatility surface or smile. Translated from MATLAB code.
-As it is a bare-metal package I would suggest to write an adapter class to feed the function.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>arg_dict</strong> (<em>dict</em>) – </li>
-<li><strong>cp</strong> (<em>ndarray</em>) – int…..Call = [+1], Put = [-1]…[m x n] or [1 x 1]</li>
-<li><strong>P</strong> (<em>ndarray</em>) – float…Option Price Matrix…[m x n]</li>
-<li><strong>S</strong> (<em>ndarray</em>) – float…Underlying Price…[1 x 1]</li>
-<li><strong>K</strong> (<em>ndarray</em>) – float…Strike Price…[m x n]</li>
-<li><strong>tau</strong> (<em>ndarray</em>) – float…Time to Expiry in Years…[m x n]</li>
-<li><strong>r</strong> (<em>ndarray</em>) – float…Continuous Risk-Free Rate…[m x n] or [1 x 1]</li>
-<li><strong>q</strong> (<em>ndarray</em>) – float…Continuous Dividend Yield…[m x n] or [1 x 1]</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul class="simple">
-<li><strong>iv</strong> (ndarray) – float…The Implied Volatility…[m x n]</li>
-</ul>
-</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Examples</p>
-<p>This is the first example which is also included separate file within
-the examples folder.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">calcbsimpvol</span> <span class="kn">import</span> <span class="n">calcbsimpvol</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">K_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
-<span class="n">K</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">K_value</span><span class="p">),</span> <span class="mi">1</span><span class="p">))</span>
-<span class="n">K</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">K_value</span>
-<span class="n">tau_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">1.01</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span>
-<span class="n">tau</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">tau_value</span><span class="p">),</span> <span class="mi">1</span><span class="p">))</span>
-<span class="n">tau</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">tau_value</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
-<span class="n">q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="mf">0.03</span><span class="p">)</span>
-<span class="n">cp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">P</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">59.35</span><span class="p">,</span> <span class="mf">34.41</span><span class="p">,</span> <span class="mf">10.34</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">],</span>
-<span class="p">[</span><span class="mf">58.71</span><span class="p">,</span> <span class="mf">33.85</span><span class="p">,</span> <span class="mf">10.99</span><span class="p">,</span> <span class="mf">1.36</span><span class="p">,</span> <span class="mf">0.14</span><span class="p">],</span>
-<span class="p">[</span><span class="mf">58.07</span><span class="p">,</span> <span class="mf">33.35</span><span class="p">,</span> <span class="mf">11.50</span><span class="p">,</span> <span class="mf">2.12</span><span class="p">,</span> <span class="mf">0.40</span><span class="p">],</span>
-<span class="p">[</span><span class="mf">57.44</span><span class="p">,</span> <span class="mf">32.91</span><span class="p">,</span> <span class="mf">11.90</span><span class="p">,</span> <span class="mf">2.77</span><span class="p">,</span> <span class="mf">0.70</span><span class="p">]]</span>
-<span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
-<span class="p">[</span><span class="n">K</span><span class="p">,</span> <span class="n">tau</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">tau</span><span class="p">)</span>
-<span class="n">sigma</span> <span class="o">=</span> <span class="n">calcbsimpvol</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">cp</span><span class="o">=</span><span class="n">cp</span><span class="p">,</span> <span class="n">P</span><span class="o">=</span><span class="n">P</span><span class="p">,</span> <span class="n">S</span><span class="o">=</span><span class="n">S</span><span class="p">,</span> <span class="n">K</span><span class="o">=</span><span class="n">K</span><span class="p">,</span> <span class="n">tau</span><span class="o">=</span><span class="n">tau</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="n">r</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="n">q</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">sigma</span><span class="p">)</span>
-<span class="c1"># [[       nan,        nan, 0.20709362, 0.21820954, 0.24188675],</span>
-<span class="c1"># [       nan, 0.22279836, 0.20240934, 0.21386148, 0.23738982],</span>
-<span class="c1"># [       nan, 0.22442837, 0.1987048 , 0.21063506, 0.23450013],</span>
-<span class="c1"># [       nan, 0.22188111, 0.19564657, 0.20798285, 0.23045406]]</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#%% Plotting the results</span>
-<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">S</span><span class="o">/</span><span class="n">K</span><span class="p">)</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;log Moneyness&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Time Until Expiry&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s1">&#39;implied Volatility [% p.a.]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>This is the second example which is also included separate file within
-the examples folder.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">calcbsimpvol</span> <span class="kn">import</span> <span class="n">calcbsimpvol</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="n">P</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">59.14</span><span class="p">,</span> <span class="mf">34.21</span><span class="p">,</span> <span class="mf">10.17</span><span class="p">,</span> <span class="mf">16.12</span><span class="p">,</span> <span class="mf">40.58</span><span class="p">],</span>
-<span class="p">[</span><span class="mf">58.43</span><span class="p">,</span> <span class="mf">33.59</span><span class="p">,</span> <span class="mf">10.79</span><span class="p">,</span> <span class="mf">17.47</span><span class="p">,</span> <span class="mf">41.15</span><span class="p">],</span>
-<span class="p">[</span><span class="mf">57.87</span><span class="p">,</span> <span class="mf">33.16</span><span class="p">,</span> <span class="mf">11.363</span><span class="p">,</span> <span class="mf">18.63</span><span class="p">,</span> <span class="mf">41.74</span><span class="p">],</span>
-<span class="p">[</span><span class="mf">57.44</span><span class="p">,</span> <span class="mf">32.91</span><span class="p">,</span> <span class="mf">11.90</span><span class="p">,</span> <span class="mf">19.58</span><span class="p">,</span> <span class="mf">42.27</span><span class="p">]]</span>
-<span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
-<span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">K</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
-<span class="n">tau</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">1.01</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span>
-<span class="n">K</span><span class="p">,</span> <span class="n">tau</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">tau</span><span class="p">)</span>
-<span class="n">cp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)),</span> <span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">))))</span>  <span class="c1"># [Calls[4,3], Puts[4,2]]</span>
-<span class="n">r</span> <span class="o">=</span> <span class="mf">0.01</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="mf">1.15</span><span class="p">,</span> <span class="mf">1.10</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-<span class="n">q</span> <span class="o">=</span> <span class="mf">0.03</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="mf">1.3</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-<span class="n">sigma</span> <span class="o">=</span> <span class="n">calcbsimpvol</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">cp</span><span class="o">=</span><span class="n">cp</span><span class="p">,</span> <span class="n">P</span><span class="o">=</span><span class="n">P</span><span class="p">,</span> <span class="n">S</span><span class="o">=</span><span class="n">S</span><span class="p">,</span> <span class="n">K</span><span class="o">=</span><span class="n">K</span><span class="p">,</span> <span class="n">tau</span><span class="o">=</span><span class="n">tau</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="n">r</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="n">q</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">sigma</span><span class="p">)</span>
-<span class="c1"># [[0.27911614, 0.23659105, 0.20714849, 0.21834553, 0.24225733],</span>
-<span class="c1"># [0.2797917 , 0.2315275 , 0.20249323, 0.21436123, 0.23823301],</span>
-<span class="c1"># [0.27436779, 0.22679618, 0.1987485 , 0.21097384, 0.23450519],</span>
-<span class="c1"># [0.26918174, 0.22235213, 0.19572994, 0.20807133, 0.2310324 ]]</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#%% Plotting the results</span>
-<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>  <span class="c1"># noqa: F401 unused import</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">S</span><span class="o">/</span><span class="n">K</span><span class="p">)</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;log Moneyness&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Time Until Expiry&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s1">&#39;implied Volatility [% p.a.]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-<p class="rubric">References</p>
-<ol class="arabic simple">
-<li>Li, 2006, “You Don’t Have to Bother Newton for Implied Volatility”</li>
-</ol>
-<blockquote>
-<div><a class="reference external" href="http://papers.ssrn.com/sol3/papers.cfm?abstract_id=952727">http://papers.ssrn.com/sol3/papers.cfm?abstract_id=952727</a></div></blockquote>
-<ol class="arabic simple" start="2">
-<li><a class="reference external" href="http://en.wikipedia.org/wiki/Householder's_method">http://en.wikipedia.org/wiki/Householder’s_method</a></li>
-<li><a class="reference external" href="http://en.wikipedia.org/wiki/Greeks_(finance">http://en.wikipedia.org/wiki/Greeks_(finance</a>)</li>
-<li><a class="reference external" href="https://www.mathworks.com/matlabcentral/fileexchange/41473-calcbsimpvol-cp-p-s-k-t-r-q">https://www.mathworks.com/matlabcentral/fileexchange/41473-calcbsimpvol-cp-p-s-k-t-r-q</a></li>
-</ol>
-</dd></dl>
-
 </div>
 
 
@@ -290,7 +173,7 @@ the examples folder.</p>
         <a href="results.html" class="btn btn-neutral float-right" title="Results and (some) Discussion." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="README.html" class="btn btn-neutral" title="calcbsimpvol" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="README.html" class="btn btn-neutral float-left" title="calcbsimpvol" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -316,28 +199,16 @@ the examples folder.</p>
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
-        <script type="text/javascript" src="_static/copybutton.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

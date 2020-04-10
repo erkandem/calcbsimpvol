@@ -17,13 +17,22 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
@@ -31,21 +40,16 @@
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Notes on Data Sets" href="data.html" />
     <link rel="prev" title="API" href="api.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -183,31 +187,31 @@ implied volatility is underestimated by closed form approach.</p>
 <h2><code class="docutils literal notranslate"><span class="pre">reference</span></code> vs <code class="docutils literal notranslate"><span class="pre">calcBSImvol()</span></code>, <code class="docutils literal notranslate"><span class="pre">bsimpv()</span></code> and <code class="docutils literal notranslate"><span class="pre">calcbsimpvol()</span></code><a class="headerlink" href="#reference-vs-calcbsimvol-bsimpv-and-calcbsimpvol" title="Permalink to this headline">¶</a></h2>
 <div class="align-center figure" id="id5">
 <a class="reference internal image-reference" href="_images/mlb_blsimpv_vs_reference.png"><img alt="mlb_blsimpv_vs_reference" src="_images/mlb_blsimpv_vs_reference.png" style="width: 350px; height: 262px;" /></a>
-<p class="caption"><span class="caption-text">Fig. 1 - reference vs results of MATLAB builtin <code class="docutils literal notranslate"><span class="pre">blsimpv()</span></code></span></p>
+<p class="caption"><span class="caption-text">Fig. 1 - reference vs results of MATLAB builtin <code class="docutils literal notranslate"><span class="pre">blsimpv()</span></code></span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </div>
 <div class="align-center figure" id="id6">
 <a class="reference internal image-reference" href="_images/mlb_rational_vs_reference.png"><img alt="mlb_rational_vs_reference" src="_images/mlb_rational_vs_reference.png" style="width: 350px; height: 262px;" /></a>
-<p class="caption"><span class="caption-text">Fig. 2 - reference vs results of MATLAB <code class="docutils literal notranslate"><span class="pre">calcBSImpVol()</span></code></span></p>
+<p class="caption"><span class="caption-text">Fig. 2 - reference vs results of MATLAB <code class="docutils literal notranslate"><span class="pre">calcBSImpVol()</span></code></span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
 </div>
 <div class="align-center figure" id="id7">
 <a class="reference internal image-reference" href="_images/mlb_rational_vs_reference_cleaned.png"><img alt="mlb_rational_vs_reference_cleaned" src="_images/mlb_rational_vs_reference_cleaned.png" style="width: 350px; height: 262px;" /></a>
-<p class="caption"><span class="caption-text">Fig. 3 -  reference vs Python <code class="docutils literal notranslate"><span class="pre">calcBSImpVol()</span></code> - adjusted for <code class="docutils literal notranslate"><span class="pre">NaN</span></code></span></p>
+<p class="caption"><span class="caption-text">Fig. 3 -  reference vs Python <code class="docutils literal notranslate"><span class="pre">calcBSImpVol()</span></code> - adjusted for <code class="docutils literal notranslate"><span class="pre">NaN</span></code></span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
 </div>
 <div class="align-center figure" id="id8">
 <a class="reference internal image-reference" href="_images/python_vs_reference_cleaned.png"><img alt="python_vs_reference_cleaned" src="_images/python_vs_reference_cleaned.png" style="width: 350px; height: 262px;" /></a>
-<p class="caption"><span class="caption-text">Fig. 4 - reference vs Python <code class="docutils literal notranslate"><span class="pre">calcbsimpvol()</span></code></span></p>
+<p class="caption"><span class="caption-text">Fig. 4 - reference vs Python <code class="docutils literal notranslate"><span class="pre">calcbsimpvol()</span></code></span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
 </div>
 <div class="align-center figure" id="id9">
 <a class="reference internal image-reference" href="_images/python_vs_reference_cleaned.png"><img alt="python_vs_reference_cleaned" src="_images/python_vs_reference_cleaned.png" style="width: 350px; height: 262px;" /></a>
-<p class="caption"><span class="caption-text">Fig. 4.1 - reference vs Python <code class="docutils literal notranslate"><span class="pre">calcbsimpvol()</span></code> - close up</span></p>
+<p class="caption"><span class="caption-text">Fig. 4.1 - reference vs Python <code class="docutils literal notranslate"><span class="pre">calcbsimpvol()</span></code> - close up</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
 </div>
 <div class="align-center figure" id="id10">
 <a class="reference internal image-reference" href="_images/calc_ivol_vs_reference_close_up_calls.png"><img alt="calc_ivol_vs_reference_close_up_calls" src="_images/calc_ivol_vs_reference_close_up_calls.png" style="width: 350px; height: 262px;" /></a>
-<p class="caption"><span class="caption-text">Fig. 4.2 - reference vs Python <code class="docutils literal notranslate"><span class="pre">calcbsimpvol()</span></code> - only calls</span></p>
+<p class="caption"><span class="caption-text">Fig. 4.2 - reference vs Python <code class="docutils literal notranslate"><span class="pre">calcbsimpvol()</span></code> - only calls</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
 </div>
 <div class="align-center figure" id="id11">
 <a class="reference internal image-reference" href="_images/calc_ivol_vs_reference_close_up_puts.png"><img alt="calc_ivol_vs_reference_close_up_puts" src="_images/calc_ivol_vs_reference_close_up_puts.png" style="width: 350px; height: 262px;" /></a>
-<p class="caption"><span class="caption-text">Fig. 4.3 - reference vs Python <code class="docutils literal notranslate"><span class="pre">calc_ivol()</span></code> - only puts</span></p>
+<p class="caption"><span class="caption-text">Fig. 4.3 - reference vs Python <code class="docutils literal notranslate"><span class="pre">calc_ivol()</span></code> - only puts</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="calcbsimvol-vs-bsimpv-vs-calc-ivol">
@@ -218,15 +222,15 @@ implied volatility is underestimated by closed form approach.</p>
 <p>Fig. 7 completes the picture.</p>
 <div class="align-center figure" id="id12">
 <a class="reference internal image-reference" href="_images/mlb_builtin_vs_matrixwise.png"><img alt="mlb_builtin_vs_matrixwise" src="_images/mlb_builtin_vs_matrixwise.png" style="width: 350px; height: 262px;" /></a>
-<p class="caption"><span class="caption-text">Fig. 5 - MATLAB builtin <code class="docutils literal notranslate"><span class="pre">blsimpv()</span></code> vs  MATLAB <code class="docutils literal notranslate"><span class="pre">calcBSImpVol()</span></code></span></p>
+<p class="caption"><span class="caption-text">Fig. 5 - MATLAB builtin <code class="docutils literal notranslate"><span class="pre">blsimpv()</span></code> vs  MATLAB <code class="docutils literal notranslate"><span class="pre">calcBSImpVol()</span></code></span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
 </div>
 <div class="align-center figure" id="id13">
 <a class="reference internal image-reference" href="_images/mlb_builtin_vs_matrixwise_cleaned_for_nan_both.png"><img alt="mlb_builtin_vs_matrixwise_cleaned_for_nan_both" src="_images/mlb_builtin_vs_matrixwise_cleaned_for_nan_both.png" style="width: 350px; height: 262px;" /></a>
-<p class="caption"><span class="caption-text">Fig. 6 - MATLAB builtin <code class="docutils literal notranslate"><span class="pre">blsimpv()</span></code> vs  MATLAB <code class="docutils literal notranslate"><span class="pre">calcBSImpVol()</span></code> - adjusted for <code class="docutils literal notranslate"><span class="pre">NaN</span></code></span></p>
+<p class="caption"><span class="caption-text">Fig. 6 - MATLAB builtin <code class="docutils literal notranslate"><span class="pre">blsimpv()</span></code> vs  MATLAB <code class="docutils literal notranslate"><span class="pre">calcBSImpVol()</span></code> - adjusted for <code class="docutils literal notranslate"><span class="pre">NaN</span></code></span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
 </div>
 <div class="align-center figure" id="id14">
 <a class="reference internal image-reference" href="_images/python_vs_matlab_clean.png"><img alt="python_vs_matlab_clean" src="_images/python_vs_matlab_clean.png" style="width: 350px; height: 262px;" /></a>
-<p class="caption"><span class="caption-text">Fig. 7 - Python <code class="docutils literal notranslate"><span class="pre">calcbsimpvol()</span></code> vs MATLAB <code class="docutils literal notranslate"><span class="pre">calcBSImVol()</span></code></span></p>
+<p class="caption"><span class="caption-text">Fig. 7 - Python <code class="docutils literal notranslate"><span class="pre">calcbsimpvol()</span></code> vs MATLAB <code class="docutils literal notranslate"><span class="pre">calcBSImVol()</span></code></span><a class="headerlink" href="#id14" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
@@ -242,7 +246,7 @@ implied volatility is underestimated by closed form approach.</p>
         <a href="data.html" class="btn btn-neutral float-right" title="Notes on Data Sets" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="api.html" class="btn btn-neutral" title="API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="api.html" class="btn btn-neutral float-left" title="API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -268,28 +272,16 @@ implied volatility is underestimated by closed form approach.</p>
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
-        <script type="text/javascript" src="_static/copybutton.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>
