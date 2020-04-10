@@ -12,7 +12,7 @@ if "%SPHINXBUILD%" == "" (
 	set SPHINXBUILD=sphinx-build
 )
 set SOURCEDIR=source
-set BUILDDIR=../../../calcBSImpVol-docs
+set BUILDDIR=../../../calcbsimpvol-docs
 
 if "%1" == "" goto help
 
