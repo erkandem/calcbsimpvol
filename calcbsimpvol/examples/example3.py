@@ -148,7 +148,7 @@ def main(file_path, steps):
         except NameError:
             print('Skipping plot part - could not executes `scatter3d` in example3.')
 
-    # next plot is note supposed to be used for quality measurment
+    # next plot is note supposed to be used for quality measurement
     # it was simply a way to check visually whether the Python translation correlates
     # with the MATLAB implementation
     else:
