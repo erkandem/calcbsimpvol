@@ -134,7 +134,7 @@ Originally, I left the camelCase function name and spelling in place but eventua
 
 ## ToDos
 * make the code compatible with `Python 2`
-* make it `PyPy`
+* make it `PyPy`compatible
 
 
 
