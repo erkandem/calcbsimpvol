@@ -172,5 +172,5 @@ The translation is not related or endorsed by the original author.
    :target: https://travis-ci.com/erkandem/calcbsimpvol
 .. |image1| image:: https://img.shields.io/badge/License-MIT-blue.svg
 .. |image2| image:: https://img.shields.io/badge/Python-3.4%20%7C%203.5%20%7C%203.6%20%7C%203.7%20%7C%203.8%20%7C%20PyPy3-blue.svg
-.. |image3| image:: https://img.shields.io/badge/PyPi-v1.13.0-blue.svg
+.. |image3| image:: https://img.shields.io/badge/PyPi-v1.14.0-blue.svg
    :target: https://pypi.org/project/calcbsimpvol/
