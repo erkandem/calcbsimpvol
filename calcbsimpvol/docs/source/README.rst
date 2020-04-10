@@ -144,7 +144,7 @@ ToDos
 -----
 
 -  make the code compatible with ``Python 2``
--  make it ``PyPy``
+-  make it ``PyPy`` compatible
 
 References
 ----------
