@@ -10,8 +10,8 @@ source_suffix = ['.rst', '.md']
 project = 'calcbsimpvol'
 copyright = '2018, Erkan Demiralay'
 author = 'Erkan Demiralay'
-version = '1.13.0'
-release = '1.13.0'
+version = '1.14.0'
+release = '1.14.0'
 # -- General configuration ---------------------------------------------------
 
 # needs_sphinx = '1.0'
