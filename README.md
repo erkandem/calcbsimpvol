@@ -1,7 +1,7 @@
 
 [![Build Status](https://travis-ci.com/erkandem/calcbsimpvol.svg?token=EM8YQfR9wuLvQFQzBZ5o&branch=master)](https://travis-ci.com/erkandem/calcbsimpvol)
 ![](https://img.shields.io/badge/License-MIT-blue.svg)
-![](https://img.shields.io/badge/Python-3.4%20%7C%203.5%20%7C%203.6%20%7C%203.7%20%7C%20PyPy3-blue.svg)
+![](https://img.shields.io/badge/Python-3.4%20%7C%203.5%20%7C%203.6%20%7C%203.7%20%7C%203.8%20%7C%20PyPy3-blue.svg)
 [![](https://img.shields.io/badge/PyPi-v1.13.0-blue.svg)](https://pypi.org/project/calcbsimpvol/)
 
 # calcbsimpvol
