@@ -10,10 +10,10 @@ python:
   - "3.6-dev"
   - "3.7"
   - "3.7-dev"
-# - "3.8"
-# - "3.8-dev"
+  - "3.8"
+  - "3.8-dev"
 #  PyPy versions
-  - "pypy3.5"
+#  - "pypy3.5"
 # pypy built dependencies for SciPy and Matplotlib
 before_install:
   - sudo apt-get install -y libblas-dev

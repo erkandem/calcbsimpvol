@@ -31,7 +31,7 @@ disp(sigma)
 
 
 file_path = fullfile(root_path, 'example1.py');
-system(sprintf('python %s', file_path))
+system(sprintf('python3 %s', file_path))
 
 % python
 %[[       nan        nan 0.20709362 0.21820954 0.24188675]
@@ -63,7 +63,7 @@ disp(sigma)
 
 
 file_path = fullfile(root_path, 'example2.py');
-system(sprintf('python %s', file_path))
+system(sprintf('python3 %s', file_path))
 
 % python
 %[[       nan        nan 0.20632041 0.21805647 0.24672859]

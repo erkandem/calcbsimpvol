@@ -2,7 +2,7 @@ import numpy as np
 from calcbsimpvol import calcbsimpvol
 
 
-def calcbsimpvol_ex1(verbose=False):
+def calcbsimpvol_example_1(verbose=False):
     S = np.asarray(100)
     K_value = np.arange(40, 160, 25)
     K = np.ones((np.size(K_value), 1))
@@ -28,4 +28,4 @@ def calcbsimpvol_ex1(verbose=False):
 
 
 if __name__ == '__main__':
-    result = calcbsimpvol_ex1(verbose=True)
+    result = calcbsimpvol_example_1(verbose=True)

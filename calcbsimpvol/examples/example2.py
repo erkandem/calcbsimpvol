@@ -2,7 +2,7 @@ from calcbsimpvol import calcbsimpvol
 import numpy as np
 
 
-def calcbsimpvol_ex2(verbose=False):
+def calcbsimpvol_example_2(verbose=False):
     P = [[59.14, 34.21, 10.17, 16.12, 40.58],
         [58.43, 33.59, 10.79, 17.47, 41.15],
         [57.87, 33.16, 11.363, 18.63, 41.74],
@@ -24,4 +24,4 @@ def calcbsimpvol_ex2(verbose=False):
 
 
 if __name__ == '__main__':
-    result = calcbsimpvol_ex2(verbose=True)
+    result = calcbsimpvol_example_2(verbose=True)

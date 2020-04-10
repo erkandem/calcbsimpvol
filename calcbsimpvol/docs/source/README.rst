@@ -132,14 +132,13 @@ Code Origin
 Contact
 -------
 
--  email: `erkan@erkan.io <mailto:me@erkan.io>`__
+-  email: erkan.dem@pm.me
 -  documentation:
    `erkandem.github.io/calcbsimpvol/ <https://erkandem.github.io/calcbsimpvol/>`__
 -  source:
    `github.com/erkandem/calcbsimpvol <https://github.com/erkandem/calcbsimpvol>`__
 -  issues:
    `github.com/erkandem/calcbsimpvol/issues <https://github.com/erkandem/calcbsimpvol/issues>`__
--  author website: `erkan.io <https://erkan.io>`__ (under construction)
 
 ToDos
 -----
@@ -172,6 +171,6 @@ The translation is not related or endorsed by the original author.
 .. |Build Status| image:: https://travis-ci.com/erkandem/calcbsimpvol.svg?token=EM8YQfR9wuLvQFQzBZ5o&branch=master
    :target: https://travis-ci.com/erkandem/calcbsimpvol
 .. |image1| image:: https://img.shields.io/badge/License-MIT-blue.svg
-.. |image2| image:: https://img.shields.io/badge/Python-3.4%20%7C%203.5%20%7C%203.6%20%7C%203.7%20%7C%20PyPy3-blue.svg
+.. |image2| image:: https://img.shields.io/badge/Python-3.4%20%7C%203.5%20%7C%203.6%20%7C%203.7%20%7C%203.8%20%7C%20PyPy3-blue.svg
 .. |image3| image:: https://img.shields.io/badge/PyPi-v1.13.0-blue.svg
    :target: https://pypi.org/project/calcbsimpvol/

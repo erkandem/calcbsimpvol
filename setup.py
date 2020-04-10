@@ -17,7 +17,7 @@ setup(
     long_description_content_type='text/markdown',
     url='https://erkandem.github.io/calcbsimpvol/',
     author='Erkan Demiralay',
-    author_email='erkan@erkan.io',
+    author_email='erkan.dem@pm.me',
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
@@ -33,7 +33,6 @@ setup(
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
-        'Programming Language :: Python :: Implementation :: PyPy',
     ],
     keywords='options implied volatility option iv ivol options-on-futures ivsurface black-scholes',
     install_requires=['numpy', 'scipy', 'matplotlib'],

@@ -1,15 +1,15 @@
 import json
-import io
 import os
 from time import time
 import numpy as np
 import warnings
 warnings.filterwarnings("ignore")
 import optparse
+import zipfile
 try:
     import matplotlib.pyplot as plt
     from mpl_toolkits.mplot3d import Axes3D # used for 3D plotting
-except ImportWarning():
+except ImportWarning:
     print('Could not import matplotlib - plots won\'t be created')
 
 # assumes that the package was installed in currently used environment
@@ -50,8 +50,13 @@ def scatter2d(x, y, x_key=None, y_key=None, x_label=None, y_label=None):
 
 
 def load_data(file_path):
-    with io.open(file_path, 'r') as f:
-        data_string = f.read()
+    with zipfile.ZipFile(file_path, 'r') as zf:
+        file_names = zf.namelist()
+        if len(file_names) != 1:
+            raise ValueError('expected archive to have only one file')
+        if file_names[0] not in file_path:
+            raise ValueError('expected file name to be part of the archive name')
+        data_string = zf.read(file_names[0])
         return data_string
 
 
@@ -126,24 +131,24 @@ def main(file_path, steps):
         day_to_plot = (list(results.keys()))[5]  # pick a day =)
 
     if p.mode == 'reference':
+        selector = reference_data[day_to_plot]['cp'] == np.asarray(1)  # compare only calls, `-1` for puts
         try:
-            scatter2d(x=reference_data[day_to_plot]['ref_iv_clean'][reference_data[day_to_plot]['cp'] == np.asarray(1)],
-                      y=results[day_to_plot]['py_rational'][reference_data[day_to_plot]['cp'] == np.asarray(1)],
+            scatter2d(x=np.asarray(reference_data[day_to_plot]['ref_iv_clean'])[selector],
+                      y=np.asarray(results[day_to_plot]['py_rational'])[selector],
                       x_key='ref_iv_clean',
                       y_key='py_rational')
-        except:
-            print('Skiping plot part - could not executes `scatter2d` in example3.')
-        m = np.log(results[day_to_plot]['S']
-                   / results[day_to_plot]['K'])
+        except NameError:
+            print('Skipping plot part - could not executes `scatter2d` in example3.')
+        m = np.log(results[day_to_plot]['S'] / results[day_to_plot]['K'])
         try:
             scatter3d(x=m,
                       y=results[day_to_plot]['tau'],
                       z=results[day_to_plot]['py_rational'],
                       x_label='log(F/K)', y_label='tau = T - t_0', z_label='sigma')
-        except:
-            print('Skiping plot part - could not executes `scatter3d` in example3.')
+        except NameError:
+            print('Skipping plot part - could not executes `scatter3d` in example3.')
 
-    # next plot is note supposed to be used for quality measurment
+    # next plot is note supposed to be used for quality measurement
     # it was simply a way to check visually whether the Python translation correlates
     # with the MATLAB implementation
     else:
@@ -152,8 +157,8 @@ def main(file_path, steps):
                       y=results[day_to_plot]['py_rational'],
                       x_key='mlb_rational',
                       y_key='py_rational')
-        except:
-            print('Skiping plot part - could not executes `scatter3d` in example3.')
+        except NameError:
+            print('Skipping plot part - could not executes `scatter3d` in example3.')
 
 
 if __name__ == '__main__':
@@ -175,13 +180,13 @@ if __name__ == '__main__':
     )
     p, args = parser.parse_args()
     if p.mode == 'reference':
-        file_path = os.path.join('data', 'reference_sample.json')
+        file_path = os.path.join('..', 'data', 'reference_sample.json.zip')
     # these have reference data, however the data is not from a third party
     elif p.mode == 'spy':
-        file_path = os.path.join('data', 'spy_20190118.json')
+        file_path = os.path.join('..', 'data', 'spy_20190118.json.zip')
     elif p.mode == 'cl':
-        file_path = os.path.join('data', 'cl_20171115.json')
+        file_path = os.path.join('..', 'data', 'cl_20171115.json.zip')
     else:
-        raise ValueError('must be run with an argument ("reference", "spy", "cl")')
+        raise ValueError('must be run with an argument (`reference`, `spy`, `cl`)')
 
     main(file_path=file_path, steps=p.steps)
