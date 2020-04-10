@@ -131,15 +131,15 @@ def main(file_path, steps):
         day_to_plot = (list(results.keys()))[5]  # pick a day =)
 
     if p.mode == 'reference':
+        selector = reference_data[day_to_plot]['cp'] == np.asarray(1)  # compare only calls, `-1` for puts
         try:
-            scatter2d(x=reference_data[day_to_plot]['ref_iv_clean'][reference_data[day_to_plot]['cp'] == np.asarray(1)],
-                      y=results[day_to_plot]['py_rational'][reference_data[day_to_plot]['cp'] == np.asarray(1)],
+            scatter2d(x=np.asarray(reference_data[day_to_plot]['ref_iv_clean'])[selector],
+                      y=np.asarray(results[day_to_plot]['py_rational'])[selector],
                       x_key='ref_iv_clean',
                       y_key='py_rational')
         except NameError:
             print('Skipping plot part - could not executes `scatter2d` in example3.')
-        m = np.log(results[day_to_plot]['S']
-                   / results[day_to_plot]['K'])
+        m = np.log(results[day_to_plot]['S'] / results[day_to_plot]['K'])
         try:
             scatter3d(x=m,
                       y=results[day_to_plot]['tau'],
@@ -180,12 +180,12 @@ if __name__ == '__main__':
     )
     p, args = parser.parse_args()
     if p.mode == 'reference':
-        file_path = os.path.join('data', 'reference_sample.json.zip')
+        file_path = os.path.join('..', 'data', 'reference_sample.json.zip')
     # these have reference data, however the data is not from a third party
     elif p.mode == 'spy':
-        file_path = os.path.join('data', 'spy_20190118.json.zip')
+        file_path = os.path.join('..', 'data', 'spy_20190118.json.zip')
     elif p.mode == 'cl':
-        file_path = os.path.join('data', 'cl_20171115.json.zip')
+        file_path = os.path.join('..', 'data', 'cl_20171115.json.zip')
     else:
         raise ValueError('must be run with an argument (`reference`, `spy`, `cl`)')
 
